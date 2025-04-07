@@ -1,6 +1,6 @@
 url: https://example.com/apis/apis.yml
 apis: []
-name: federal-deposit-insurance-corporation
+name: Federal Deposit Insurance Corporation (FDIC)
 tags:
   - Federal Government
   - Banking
@@ -26,3 +26,5 @@ maintainers:
     email: info@apievangelist.com
 specificationVersion: '0.18'
 aid: federal-deposit-insurance-corporation
+position: Consuming
+access: 3rd-Party
