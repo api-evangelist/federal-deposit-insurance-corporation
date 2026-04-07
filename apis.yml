@@ -11,8 +11,8 @@ created: '2024-12-25'
 modified: '2026-03-16'
 position: Consumer
 tags:
-  - Federal Government
   - Banking
+  - Federal Government
   - Insurance
 url: >-
   https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/apis.yml
