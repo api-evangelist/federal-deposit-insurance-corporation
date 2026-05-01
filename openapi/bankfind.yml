@@ -1,0 +1,259 @@
+openapi: 3.0.3
+info:
+  title: FDIC BankFind Suite API
+  description: >-
+    The FDIC BankFind Suite API provides programmatic access to data about
+    FDIC-insured banks and savings institutions, including institution profiles,
+    branch locations, financial summaries, historical records, failures,
+    deposits, and demographic data.
+  version: '1.0'
+  contact:
+    name: FDIC BankFind Suite
+    url: https://banks.data.fdic.gov/docs/
+servers:
+  - url: https://banks.data.fdic.gov/api
+    description: FDIC BankFind production endpoint
+tags:
+  - name: Institutions
+    description: FDIC-insured institution data
+  - name: Locations
+    description: Branch and office locations
+  - name: Financials
+    description: Financial reports and metrics
+  - name: History
+    description: Institution historical events
+  - name: Failures
+    description: Failed bank information
+  - name: Deposits
+    description: Summary of deposits
+  - name: Demographics
+    description: Demographic statistics
+paths:
+  /institutions:
+    get:
+      operationId: listInstitutions
+      summary: Search FDIC-insured institutions
+      description: Returns institution-level data for FDIC-insured banks and savings institutions.
+      tags:
+        - Institutions
+      parameters:
+        - $ref: '#/components/parameters/Filters'
+        - $ref: '#/components/parameters/Search'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/SortBy'
+        - $ref: '#/components/parameters/SortOrder'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: List of institutions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstitutionsResponse'
+  /locations:
+    get:
+      operationId: listLocations
+      summary: Search FDIC-insured branch and office locations
+      description: Returns branch and office location data for FDIC-insured institutions.
+      tags:
+        - Locations
+      parameters:
+        - $ref: '#/components/parameters/Filters'
+        - $ref: '#/components/parameters/Search'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/SortBy'
+        - $ref: '#/components/parameters/SortOrder'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: List of locations
+  /financials:
+    get:
+      operationId: listFinancials
+      summary: Retrieve financial reports for institutions
+      description: Returns reported financial data for FDIC-insured institutions across reporting periods.
+      tags:
+        - Financials
+      parameters:
+        - $ref: '#/components/parameters/Filters'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/SortBy'
+        - $ref: '#/components/parameters/SortOrder'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Financials response
+  /history:
+    get:
+      operationId: listHistory
+      summary: Retrieve institution structure history
+      description: Returns historical records of structural events for institutions.
+      tags:
+        - History
+      parameters:
+        - $ref: '#/components/parameters/Filters'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: History response
+  /failures:
+    get:
+      operationId: listFailures
+      summary: List failed FDIC-insured institutions
+      description: Returns information on FDIC-insured institutions that have failed.
+      tags:
+        - Failures
+      parameters:
+        - $ref: '#/components/parameters/Filters'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/SortBy'
+        - $ref: '#/components/parameters/SortOrder'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Failures response
+  /sod:
+    get:
+      operationId: listSummaryOfDeposits
+      summary: Retrieve Summary of Deposits data
+      description: Returns Summary of Deposits (SOD) data by institution and branch.
+      tags:
+        - Deposits
+      parameters:
+        - $ref: '#/components/parameters/Filters'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Summary of deposits response
+  /demographics:
+    get:
+      operationId: listDemographics
+      summary: Retrieve demographic data
+      description: Returns demographic data associated with FDIC-insured institutions.
+      tags:
+        - Demographics
+      parameters:
+        - $ref: '#/components/parameters/Filters'
+        - $ref: '#/components/parameters/Fields'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Demographics response
+components:
+  parameters:
+    Filters:
+      name: filters
+      in: query
+      description: Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges.
+      schema:
+        type: string
+    Search:
+      name: search
+      in: query
+      description: Free-text search across indexed fields.
+      schema:
+        type: string
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    SortBy:
+      name: sort_by
+      in: query
+      description: Field name to sort results by.
+      schema:
+        type: string
+    SortOrder:
+      name: sort_order
+      in: query
+      description: Sort direction (ASC or DESC).
+      schema:
+        type: string
+        enum: [ASC, DESC]
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return per request.
+      schema:
+        type: integer
+        default: 25
+        maximum: 10000
+    Offset:
+      name: offset
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+        default: 0
+    Format:
+      name: format
+      in: query
+      description: Response format (json or csv). Equivalent to setting Accept header.
+      schema:
+        type: string
+        enum: [json, csv]
+        default: json
+  schemas:
+    InstitutionsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Institution'
+        totals:
+          type: object
+    Meta:
+      type: object
+      properties:
+        total:
+          type: integer
+        parameters:
+          type: object
+    Institution:
+      type: object
+      properties:
+        CERT:
+          type: string
+          description: FDIC certificate number
+        NAME:
+          type: string
+          description: Legal name of the institution
+        STNAME:
+          type: string
+          description: State name
+        CITY:
+          type: string
+        ZIP:
+          type: string
+        BKCLASS:
+          type: string
+          description: Bank class (e.g. N, NM, SM, SB, SA)
+        ACTIVE:
+          type: integer
+        CHARTER:
+          type: string
+        FED_RSSD:
+          type: string
+        WEBADDR:
+          type: string
+        ASSET:
+          type: number
+        DEP:
+          type: number

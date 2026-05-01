@@ -1,0 +1,28 @@
+name: FDIC BankFind API Rules
+description: Operational and design rules for working with the FDIC BankFind Suite API.
+api: bankfind
+rules:
+  - id: api-key-recommended
+    description: API keys are not required but are recommended for security and request monitoring.
+    severity: info
+  - id: query-syntax
+    description: Filters use Elasticsearch query syntax with AND, OR, exclusion (!), phrase quoting, and range brackets.
+    severity: info
+  - id: date-format
+    description: Date filters must use yyyy-mm-dd format.
+    severity: error
+  - id: range-brackets
+    description: Use [a TO b] for inclusive ranges and {a TO b} for exclusive ranges.
+    severity: warning
+  - id: response-format
+    description: Set Accept header (or format query parameter) to json or csv to control output.
+    severity: info
+  - id: pagination
+    description: Use limit and offset for stable pagination; default limit is 25.
+    severity: warning
+  - id: prefer-fields
+    description: Use the fields parameter to limit response payload to required columns.
+    severity: warning
+  - id: certificate-number
+    description: CERT (FDIC certificate number) is the canonical institution identifier across endpoints.
+    severity: info

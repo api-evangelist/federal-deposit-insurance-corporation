@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "total": 1,
+    "parameters": {
+      "filters": "STNAME:\"North Carolina\"",
+      "limit": 1
+    }
+  },
+  "data": [
+    {
+      "CERT": "3510",
+      "NAME": "First Citizens Bank and Trust Company",
+      "CITY": "Raleigh",
+      "STNAME": "North Carolina",
+      "ZIP": "27603",
+      "BKCLASS": "NM",
+      "ACTIVE": 1,
+      "CHARTER": "N",
+      "FED_RSSD": "491224",
+      "WEBADDR": "https://www.firstcitizens.com",
+      "ASSET": 213757000,
+      "DEP": 153411000
+    }
+  ]
+}
