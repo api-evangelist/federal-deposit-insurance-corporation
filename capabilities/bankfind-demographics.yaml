@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FDIC BankFind Suite API — Demographics
+  description: 'FDIC BankFind Suite API — Demographics. 1 operations. Lead operation: Retrieve demographic data. Self-contained
+    Naftiko capability covering one Federal Deposit Insurance Corporation business surface.'
+  tags:
+  - Federal Deposit Insurance Corporation
+  - Demographics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY: FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bankfind-demographics
+    baseUri: https://banks.data.fdic.gov/api
+    description: FDIC BankFind Suite API — Demographics business capability. Self-contained, no shared references.
+    resources:
+    - name: demographics
+      path: /demographics
+      operations:
+      - name: listdemographics
+        method: GET
+        description: Retrieve demographic data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bankfind-demographics-rest
+    port: 8080
+    description: REST adapter for FDIC BankFind Suite API — Demographics. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/demographics
+      name: demographics
+      description: REST surface for demographics.
+      operations:
+      - method: GET
+        name: listdemographics
+        description: Retrieve demographic data
+        call: bankfind-demographics.listdemographics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bankfind-demographics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FDIC BankFind Suite API — Demographics. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: retrieve-demographic-data
+      description: Retrieve demographic data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bankfind-demographics.listdemographics
+      outputParameters:
+      - type: object
+        mapping: $.

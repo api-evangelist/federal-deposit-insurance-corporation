@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FDIC BankFind Suite API — Failures
+  description: 'FDIC BankFind Suite API — Failures. 1 operations. Lead operation: List failed FDIC-insured institutions. Self-contained
+    Naftiko capability covering one Federal Deposit Insurance Corporation business surface.'
+  tags:
+  - Federal Deposit Insurance Corporation
+  - Failures
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY: FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bankfind-failures
+    baseUri: https://banks.data.fdic.gov/api
+    description: FDIC BankFind Suite API — Failures business capability. Self-contained, no shared references.
+    resources:
+    - name: failures
+      path: /failures
+      operations:
+      - name: listfailures
+        method: GET
+        description: List failed FDIC-insured institutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bankfind-failures-rest
+    port: 8080
+    description: REST adapter for FDIC BankFind Suite API — Failures. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/failures
+      name: failures
+      description: REST surface for failures.
+      operations:
+      - method: GET
+        name: listfailures
+        description: List failed FDIC-insured institutions
+        call: bankfind-failures.listfailures
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bankfind-failures-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FDIC BankFind Suite API — Failures. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-failed-fdic-insured-institutions
+      description: List failed FDIC-insured institutions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bankfind-failures.listfailures
+      outputParameters:
+      - type: object
+        mapping: $.

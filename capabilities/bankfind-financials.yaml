@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FDIC BankFind Suite API — Financials
+  description: 'FDIC BankFind Suite API — Financials. 1 operations. Lead operation: Retrieve financial reports for institutions.
+    Self-contained Naftiko capability covering one Federal Deposit Insurance Corporation business surface.'
+  tags:
+  - Federal Deposit Insurance Corporation
+  - Financials
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY: FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bankfind-financials
+    baseUri: https://banks.data.fdic.gov/api
+    description: FDIC BankFind Suite API — Financials business capability. Self-contained, no shared references.
+    resources:
+    - name: financials
+      path: /financials
+      operations:
+      - name: listfinancials
+        method: GET
+        description: Retrieve financial reports for institutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bankfind-financials-rest
+    port: 8080
+    description: REST adapter for FDIC BankFind Suite API — Financials. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/financials
+      name: financials
+      description: REST surface for financials.
+      operations:
+      - method: GET
+        name: listfinancials
+        description: Retrieve financial reports for institutions
+        call: bankfind-financials.listfinancials
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bankfind-financials-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FDIC BankFind Suite API — Financials. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: retrieve-financial-reports-institutions
+      description: Retrieve financial reports for institutions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bankfind-financials.listfinancials
+      outputParameters:
+      - type: object
+        mapping: $.

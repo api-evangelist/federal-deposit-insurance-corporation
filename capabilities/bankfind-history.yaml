@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FDIC BankFind Suite API — History
+  description: 'FDIC BankFind Suite API — History. 1 operations. Lead operation: Retrieve institution structure history. Self-contained
+    Naftiko capability covering one Federal Deposit Insurance Corporation business surface.'
+  tags:
+  - Federal Deposit Insurance Corporation
+  - History
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY: FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bankfind-history
+    baseUri: https://banks.data.fdic.gov/api
+    description: FDIC BankFind Suite API — History business capability. Self-contained, no shared references.
+    resources:
+    - name: history
+      path: /history
+      operations:
+      - name: listhistory
+        method: GET
+        description: Retrieve institution structure history
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bankfind-history-rest
+    port: 8080
+    description: REST adapter for FDIC BankFind Suite API — History. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/history
+      name: history
+      description: REST surface for history.
+      operations:
+      - method: GET
+        name: listhistory
+        description: Retrieve institution structure history
+        call: bankfind-history.listhistory
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bankfind-history-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FDIC BankFind Suite API — History. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: retrieve-institution-structure-history
+      description: Retrieve institution structure history
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bankfind-history.listhistory
+      outputParameters:
+      - type: object
+        mapping: $.

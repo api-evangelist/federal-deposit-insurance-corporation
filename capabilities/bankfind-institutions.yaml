@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: FDIC BankFind Suite API — Institutions
+  description: 'FDIC BankFind Suite API — Institutions. 1 operations. Lead operation: Search FDIC-insured institutions. Self-contained
+    Naftiko capability covering one Federal Deposit Insurance Corporation business surface.'
+  tags:
+  - Federal Deposit Insurance Corporation
+  - Institutions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY: FEDERAL_DEPOSIT_INSURANCE_CORPORATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bankfind-institutions
+    baseUri: https://banks.data.fdic.gov/api
+    description: FDIC BankFind Suite API — Institutions business capability. Self-contained, no shared references.
+    resources:
+    - name: institutions
+      path: /institutions
+      operations:
+      - name: listinstitutions
+        method: GET
+        description: Search FDIC-insured institutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: bankfind-institutions-rest
+    port: 8080
+    description: REST adapter for FDIC BankFind Suite API — Institutions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/institutions
+      name: institutions
+      description: REST surface for institutions.
+      operations:
+      - method: GET
+        name: listinstitutions
+        description: Search FDIC-insured institutions
+        call: bankfind-institutions.listinstitutions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bankfind-institutions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for FDIC BankFind Suite API — Institutions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: search-fdic-insured-institutions
+      description: Search FDIC-insured institutions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bankfind-institutions.listinstitutions
+      outputParameters:
+      - type: object
+        mapping: $.
