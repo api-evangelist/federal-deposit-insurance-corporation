@@ -1,0 +1,403 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FDIC BankFind Suite API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Institutions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search FDIC-insured institutions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/institutions",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search across indexed fields."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field name to sort results by."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction (ASC or DESC)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (json or csv). Equivalent to setting Accept header."
+              }
+            ]
+          },
+          "docs": "Returns institution-level data for FDIC-insured banks and savings institutions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search FDIC-insured branch and office locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/locations",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search across indexed fields."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field name to sort results by."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction (ASC or DESC)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (json or csv). Equivalent to setting Accept header."
+              }
+            ]
+          },
+          "docs": "Returns branch and office location data for FDIC-insured institutions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Financials",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve financial reports for institutions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/financials",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field name to sort results by."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction (ASC or DESC)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (json or csv). Equivalent to setting Accept header."
+              }
+            ]
+          },
+          "docs": "Returns reported financial data for FDIC-insured institutions across reporting periods."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "History",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve institution structure history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/history",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns historical records of structural events for institutions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Failures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List failed FDIC-insured institutions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/failures",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field name to sort results by."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction (ASC or DESC)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns information on FDIC-insured institutions that have failed."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Deposits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Summary of Deposits data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/sod",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns Summary of Deposits (SOD) data by institution and branch."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Demographics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve demographic data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/demographics",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns demographic data associated with FDIC-insured institutions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
