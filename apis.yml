@@ -41,6 +41,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/federal-deposit-insurance-corporation-agentic-access.yml
   - type: DomainSecurity
     url: security/federal-deposit-insurance-corporation-domain-security.yml
   - type: LinkedIn
