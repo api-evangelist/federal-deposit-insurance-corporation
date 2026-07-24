@@ -1,0 +1,87 @@
+openapi: 3.0.3
+info:
+  title: FDIC BankFind Suite Demographics Financials API
+  description: The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.
+  version: '1.0'
+  contact:
+    name: FDIC BankFind Suite
+    url: https://banks.data.fdic.gov/docs/
+servers:
+- url: https://banks.data.fdic.gov/api
+  description: FDIC BankFind production endpoint
+tags:
+- name: Financials
+  description: Financial reports and metrics
+paths:
+  /financials:
+    get:
+      operationId: listFinancials
+      summary: Retrieve financial reports for institutions
+      description: Returns reported financial data for FDIC-insured institutions across reporting periods.
+      tags:
+      - Financials
+      parameters:
+      - $ref: '#/components/parameters/Filters'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/SortBy'
+      - $ref: '#/components/parameters/SortOrder'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Financials response
+components:
+  parameters:
+    Filters:
+      name: filters
+      in: query
+      description: Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges.
+      schema:
+        type: string
+    Format:
+      name: format
+      in: query
+      description: Response format (json or csv). Equivalent to setting Accept header.
+      schema:
+        type: string
+        enum:
+        - json
+        - csv
+        default: json
+    SortOrder:
+      name: sort_order
+      in: query
+      description: Sort direction (ASC or DESC).
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
+    SortBy:
+      name: sort_by
+      in: query
+      description: Field name to sort results by.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+        default: 0
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return per request.
+      schema:
+        type: integer
+        default: 25
+        maximum: 10000

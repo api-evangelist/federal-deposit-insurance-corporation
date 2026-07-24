@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: FDIC BankFind Suite Demographics API
+  description: The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.
+  version: '1.0'
+  contact:
+    name: FDIC BankFind Suite
+    url: https://banks.data.fdic.gov/docs/
+servers:
+- url: https://banks.data.fdic.gov/api
+  description: FDIC BankFind production endpoint
+tags:
+- name: Demographics
+  description: Demographic statistics
+paths:
+  /demographics:
+    get:
+      operationId: listDemographics
+      summary: Retrieve demographic data
+      description: Returns demographic data associated with FDIC-insured institutions.
+      tags:
+      - Demographics
+      parameters:
+      - $ref: '#/components/parameters/Filters'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      responses:
+        '200':
+          description: Demographics response
+components:
+  parameters:
+    Offset:
+      name: offset
+      in: query
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+        default: 0
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to return.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return per request.
+      schema:
+        type: integer
+        default: 25
+        maximum: 10000
+    Filters:
+      name: filters
+      in: query
+      description: Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges.
+      schema:
+        type: string
