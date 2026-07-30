@@ -6,7 +6,19 @@ description: >-
   examines banks for safety and soundness, promotes consumer protection, and publishes the BankFind Suite API for
   accessing data on FDIC-insured institutions.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/federal-deposit-insurance-corporation.png
 access: 3rd-Party
 created: '2024-12-25'
 modified: '2026-05-19'
@@ -19,27 +31,115 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: federal-deposit-insurance-corporation:bankfind
-    name: FDIC BankFind Suite API
-    description: >-
-      The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings
-      institutions, including institution profiles, branch locations, financial summaries, historical records, failures,
-      deposits, and demographic data.
-    humanURL: https://banks.data.fdic.gov/docs/
-    baseURL: https://banks.data.fdic.gov/api
-    tags:
-      - Banking
-      - Financial Data
-      - Insurance
-    properties:
-      - type: Documentation
-        url: https://banks.data.fdic.gov/docs/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/openapi/bankfind.yml
-      - type: Rules
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
+- aid: >-
+    federal-deposit-insurance-corporation:federal-deposit-insurance-corporation-demographics-api
+  name: Federal Deposit Insurance Corporation Demographics API
+  description: Demographic statistics
+  humanURL: https://banks.data.fdic.gov/docs/
+  baseURL: https://banks.data.fdic.gov/api
+  tags:
+  - Demographics
+  properties:
+  - type: OpenAPI
+    url: openapi/federal-deposit-insurance-corporation-demographics-api-openapi.yml
+  - type: Documentation
+    url: https://banks.data.fdic.gov/docs/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
+- aid: federal-deposit-insurance-corporation:federal-deposit-insurance-corporation-deposits-api
+  name: Federal Deposit Insurance Corporation Deposits API
+  description: Summary of deposits
+  humanURL: https://banks.data.fdic.gov/docs/
+  baseURL: https://banks.data.fdic.gov/api
+  tags:
+  - Deposits
+  properties:
+  - type: OpenAPI
+    url: openapi/federal-deposit-insurance-corporation-deposits-api-openapi.yml
+  - type: Documentation
+    url: https://banks.data.fdic.gov/docs/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
+- aid: federal-deposit-insurance-corporation:federal-deposit-insurance-corporation-failures-api
+  name: Federal Deposit Insurance Corporation Failures API
+  description: Failed bank information
+  humanURL: https://banks.data.fdic.gov/docs/
+  baseURL: https://banks.data.fdic.gov/api
+  tags:
+  - Failures
+  properties:
+  - type: OpenAPI
+    url: openapi/federal-deposit-insurance-corporation-failures-api-openapi.yml
+  - type: Documentation
+    url: https://banks.data.fdic.gov/docs/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
+- aid: >-
+    federal-deposit-insurance-corporation:federal-deposit-insurance-corporation-financials-api
+  name: Federal Deposit Insurance Corporation Financials API
+  description: Financial reports and metrics
+  humanURL: https://banks.data.fdic.gov/docs/
+  baseURL: https://banks.data.fdic.gov/api
+  tags:
+  - Financials
+  properties:
+  - type: OpenAPI
+    url: openapi/federal-deposit-insurance-corporation-financials-api-openapi.yml
+  - type: Documentation
+    url: https://banks.data.fdic.gov/docs/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
+- aid: federal-deposit-insurance-corporation:federal-deposit-insurance-corporation-history-api
+  name: Federal Deposit Insurance Corporation History API
+  description: Institution historical events
+  humanURL: https://banks.data.fdic.gov/docs/
+  baseURL: https://banks.data.fdic.gov/api
+  tags:
+  - History
+  properties:
+  - type: OpenAPI
+    url: openapi/federal-deposit-insurance-corporation-history-api-openapi.yml
+  - type: Documentation
+    url: https://banks.data.fdic.gov/docs/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
+- aid: >-
+    federal-deposit-insurance-corporation:federal-deposit-insurance-corporation-institutions-api
+  name: Federal Deposit Insurance Corporation Institutions API
+  description: FDIC-insured institution data
+  humanURL: https://banks.data.fdic.gov/docs/
+  baseURL: https://banks.data.fdic.gov/api
+  tags:
+  - Institutions
+  properties:
+  - type: OpenAPI
+    url: openapi/federal-deposit-insurance-corporation-institutions-api-openapi.yml
+  - type: Documentation
+    url: https://banks.data.fdic.gov/docs/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
+- aid: >-
+    federal-deposit-insurance-corporation:federal-deposit-insurance-corporation-locations-api
+  name: Federal Deposit Insurance Corporation Locations API
+  description: Branch and office locations
+  humanURL: https://banks.data.fdic.gov/docs/
+  baseURL: https://banks.data.fdic.gov/api
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/federal-deposit-insurance-corporation-locations-api-openapi.yml
+  - type: Documentation
+    url: https://banks.data.fdic.gov/docs/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-deposit-insurance-corporation/refs/heads/main/rules/bankfind-rules.yml
 common:
   - type: AgenticAccess
     url: agentic-access/federal-deposit-insurance-corporation-agentic-access.yml
