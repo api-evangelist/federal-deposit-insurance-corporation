@@ -1,0 +1,26 @@
+{
+  "provider": "federal-deposit-insurance-corporation",
+  "sources": [
+    "federal-deposit-insurance-corporation-demographics-api-openapi.yml",
+    "federal-deposit-insurance-corporation-deposits-api-openapi.yml",
+    "federal-deposit-insurance-corporation-failures-api-openapi.yml",
+    "federal-deposit-insurance-corporation-financials-api-openapi.yml",
+    "federal-deposit-insurance-corporation-history-api-openapi.yml",
+    "federal-deposit-insurance-corporation-institutions-api-openapi.yml",
+    "federal-deposit-insurance-corporation-locations-api-openapi.yml"
+  ],
+  "outputs": [
+    "federal-deposit-insurance-corporation-demographics-api-openapi.yml",
+    "federal-deposit-insurance-corporation-deposits-api-openapi.yml",
+    "federal-deposit-insurance-corporation-failures-api-openapi.yml",
+    "federal-deposit-insurance-corporation-financials-api-openapi.yml",
+    "federal-deposit-insurance-corporation-history-api-openapi.yml",
+    "federal-deposit-insurance-corporation-institutions-api-openapi.yml",
+    "federal-deposit-insurance-corporation-locations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
