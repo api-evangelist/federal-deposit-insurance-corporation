@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FDIC BankFind Suite Demographics Failures API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Failures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List failed FDIC-insured institutions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/failures",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field name to sort results by."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction (ASC or DESC)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns information on FDIC-insured institutions that have failed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

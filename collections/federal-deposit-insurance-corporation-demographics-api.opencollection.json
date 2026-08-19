@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FDIC BankFind Suite Demographics API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Demographics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve demographic data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://banks.data.fdic.gov/api/demographics",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per request."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns demographic data associated with FDIC-insured institutions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

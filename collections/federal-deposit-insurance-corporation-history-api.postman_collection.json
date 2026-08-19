@@ -1,0 +1,132 @@
+{
+  "item": [
+    {
+      "id": "64638ac1-cc54-46be-b5bb-d33ca957e2ba",
+      "name": "History",
+      "description": {
+        "content": "Institution historical events",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c90e9889-401e-430e-9ac7-8c731ec641f2",
+          "name": "Retrieve institution structure history",
+          "request": {
+            "name": "Retrieve institution structure history",
+            "description": {
+              "content": "Returns historical records of structural events for institutions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of records to return per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of records to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ab97a67-7b29-473c-92f8-d4166783dc44",
+              "name": "History response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://banks.data.fdic.gov/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b4e87e78-a9c2-4506-b8c9-87acab924127",
+    "name": "FDIC BankFind Suite Demographics History API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.\n\nContact Support:\n Name: FDIC BankFind Suite",
+      "type": "text/plain"
+    }
+  }
+}

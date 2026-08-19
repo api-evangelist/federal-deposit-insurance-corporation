@@ -1,0 +1,132 @@
+{
+  "item": [
+    {
+      "id": "4d065675-66a0-40df-b33e-a252e48870cb",
+      "name": "Deposits",
+      "description": {
+        "content": "Summary of deposits",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d237eaca-0cd3-47c9-8a7d-298fd7ef8990",
+          "name": "Retrieve Summary of Deposits data",
+          "request": {
+            "name": "Retrieve Summary of Deposits data",
+            "description": {
+              "content": "Returns Summary of Deposits (SOD) data by institution and branch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sod"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of records to return per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of records to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3eb8a1f3-38a4-4c93-8785-c5d33d5a55d7",
+              "name": "Summary of deposits response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://banks.data.fdic.gov/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b6001319-e5b7-44e8-86fd-9ce0c1958da5",
+    "name": "FDIC BankFind Suite Demographics Deposits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.\n\nContact Support:\n Name: FDIC BankFind Suite",
+      "type": "text/plain"
+    }
+  }
+}

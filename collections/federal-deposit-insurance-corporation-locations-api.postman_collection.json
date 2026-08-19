@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "5d0dd493-2412-4893-8fea-a0c3b2bb1b13",
+      "name": "Locations",
+      "description": {
+        "content": "Branch and office locations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76e72d94-6206-407e-b275-d8f4d147a7fd",
+          "name": "Search FDIC-insured branch and office locations",
+          "request": {
+            "name": "Search FDIC-insured branch and office locations",
+            "description": {
+              "content": "Returns branch and office location data for FDIC-insured institutions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Free-text search across indexed fields."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>",
+                  "description": "Field name to sort results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>",
+                  "description": "Sort direction (ASC or DESC)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of records to return per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of records to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json",
+                  "description": "Response format (json or csv). Equivalent to setting Accept header."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f81a7a6f-2067-468d-8322-8b3f581fec86",
+              "name": "List of locations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://banks.data.fdic.gov/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b3f47b2e-7403-4c02-a1ce-756ed981fa97",
+    "name": "FDIC BankFind Suite Demographics Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.\n\nContact Support:\n Name: FDIC BankFind Suite",
+      "type": "text/plain"
+    }
+  }
+}

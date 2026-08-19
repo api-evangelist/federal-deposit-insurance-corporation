@@ -1,0 +1,132 @@
+{
+  "item": [
+    {
+      "id": "5629cf38-6683-43d4-9402-e1f8d37be17c",
+      "name": "Demographics",
+      "description": {
+        "content": "Demographic statistics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7bdb3569-900a-402a-a257-85a1699da438",
+          "name": "Retrieve demographic data",
+          "request": {
+            "name": "Retrieve demographic data",
+            "description": {
+              "content": "Returns demographic data associated with FDIC-insured institutions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demographics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of records to return per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of records to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc5dfc4a-ca8c-48d9-b52d-a2bb09f2347b",
+              "name": "Demographics response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://banks.data.fdic.gov/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8da8689d-7bbf-4429-aee8-2013dbe1b512",
+    "name": "FDIC BankFind Suite Demographics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.\n\nContact Support:\n Name: FDIC BankFind Suite",
+      "type": "text/plain"
+    }
+  }
+}

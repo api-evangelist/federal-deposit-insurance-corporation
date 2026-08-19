@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "cd5df0f0-e20c-47b2-bac4-9ec31221dbfb",
+      "name": "Financials",
+      "description": {
+        "content": "Financial reports and metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c123cae2-5af1-4b97-a0cd-068b8408a62e",
+          "name": "Retrieve financial reports for institutions",
+          "request": {
+            "name": "Retrieve financial reports for institutions",
+            "description": {
+              "content": "Returns reported financial data for FDIC-insured institutions across reporting periods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "financials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>",
+                  "description": "Field name to sort results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>",
+                  "description": "Sort direction (ASC or DESC)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Maximum number of records to return per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of records to skip for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json",
+                  "description": "Response format (json or csv). Equivalent to setting Accept header."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "114ad9f9-257f-44ec-87b3-61ffa7d8b2d6",
+              "name": "Financials response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://banks.data.fdic.gov/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "01bb1541-c27f-499e-8831-2438545c5711",
+    "name": "FDIC BankFind Suite Demographics Financials API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.\n\nContact Support:\n Name: FDIC BankFind Suite",
+      "type": "text/plain"
+    }
+  }
+}
