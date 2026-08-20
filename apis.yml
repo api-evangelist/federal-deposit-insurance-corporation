@@ -25,6 +25,11 @@ modified: '2026-05-19'
 position: Consumer
 tags:
   - Banking
+  - Federal-Government
+  - Financial Data
+  - Insurance
+tags_raw:
+  - Banking
   - Federal Government
   - Financial Data
   - Insurance
@@ -115,6 +120,8 @@ apis:
   humanURL: https://banks.data.fdic.gov/docs/
   baseURL: https://banks.data.fdic.gov/api
   tags:
+  - institutions
+  tags_raw:
   - Institutions
   properties:
   - type: OpenAPI
