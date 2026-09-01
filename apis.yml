@@ -131,7 +131,7 @@ apis:
   humanURL: https://banks.data.fdic.gov/docs/
   baseURL: https://banks.data.fdic.gov/api
   tags:
-  - institutions
+  - Institutions
   tags_raw:
   - Institutions
   properties:
