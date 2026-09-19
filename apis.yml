@@ -100,6 +100,8 @@ apis:
   humanURL: https://banks.data.fdic.gov/docs/
   baseURL: https://banks.data.fdic.gov/api
   tags:
+  - Financial
+  tags_raw:
   - Financials
   properties:
   - type: OpenAPI
@@ -149,6 +151,8 @@ apis:
   humanURL: https://banks.data.fdic.gov/docs/
   baseURL: https://banks.data.fdic.gov/api
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
