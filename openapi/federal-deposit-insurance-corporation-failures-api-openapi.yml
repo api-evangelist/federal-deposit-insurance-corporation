@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: FDIC BankFind Suite Demographics Failures API
+  title: FDIC BankFind Suite Failures API
   description: The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.
   version: '1.0'
   contact:
@@ -32,12 +32,6 @@ paths:
           description: Failures response
 components:
   parameters:
-    Filters:
-      name: filters
-      in: query
-      description: Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges.
-      schema:
-        type: string
     SortOrder:
       name: sort_order
       in: query
@@ -47,10 +41,24 @@ components:
         enum:
         - ASC
         - DESC
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return per request.
+      schema:
+        type: integer
+        default: 25
+        maximum: 10000
     SortBy:
       name: sort_by
       in: query
       description: Field name to sort results by.
+      schema:
+        type: string
+    Filters:
+      name: filters
+      in: query
+      description: Elasticsearch-style filter expression. Supports AND/OR, exclusions (!), and ranges.
       schema:
         type: string
     Offset:
@@ -66,11 +74,3 @@ components:
       description: Comma-separated list of fields to return.
       schema:
         type: string
-    Limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return per request.
-      schema:
-        type: integer
-        default: 25
-        maximum: 10000

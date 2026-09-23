@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: FDIC BankFind Suite Demographics Deposits API
+  title: FDIC BankFind Suite Deposits API
   description: The FDIC BankFind Suite API provides programmatic access to data about FDIC-insured banks and savings institutions, including institution profiles, branch locations, financial summaries, historical records, failures, deposits, and demographic data.
   version: '1.0'
   contact:
@@ -30,6 +30,14 @@ paths:
           description: Summary of deposits response
 components:
   parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of records to return per request.
+      schema:
+        type: integer
+        default: 25
+        maximum: 10000
     Offset:
       name: offset
       in: query
@@ -43,14 +51,6 @@ components:
       description: Comma-separated list of fields to return.
       schema:
         type: string
-    Limit:
-      name: limit
-      in: query
-      description: Maximum number of records to return per request.
-      schema:
-        type: integer
-        default: 25
-        maximum: 10000
     Filters:
       name: filters
       in: query

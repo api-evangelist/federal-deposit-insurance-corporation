@@ -1,13 +1,7 @@
 {
   "provider": "federal-deposit-insurance-corporation",
   "sources": [
-    "federal-deposit-insurance-corporation-demographics-api-openapi.yml",
-    "federal-deposit-insurance-corporation-deposits-api-openapi.yml",
-    "federal-deposit-insurance-corporation-failures-api-openapi.yml",
-    "federal-deposit-insurance-corporation-financials-api-openapi.yml",
-    "federal-deposit-insurance-corporation-history-api-openapi.yml",
-    "federal-deposit-insurance-corporation-institutions-api-openapi.yml",
-    "federal-deposit-insurance-corporation-locations-api-openapi.yml"
+    "_original/bankfind.yml"
   ],
   "outputs": [
     "federal-deposit-insurance-corporation-demographics-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bankfind.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "federal-deposit-insurance-corporation-demographics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "federal-deposit-insurance-corporation-deposits-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "federal-deposit-insurance-corporation-failures-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "federal-deposit-insurance-corporation-financials-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "federal-deposit-insurance-corporation-history-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "federal-deposit-insurance-corporation-institutions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "federal-deposit-insurance-corporation-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

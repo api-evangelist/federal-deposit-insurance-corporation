@@ -1,6 +1,6 @@
-name: FDIC BankFind API Rules
+x-name: FDIC BankFind API Rules
 description: Operational and design rules for working with the FDIC BankFind Suite API.
-api: bankfind
+x-api: bankfind
 rules:
   - id: api-key-recommended
     description: API keys are not required but are recommended for security and request monitoring.
